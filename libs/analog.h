@@ -25,7 +25,7 @@
 // ISR triggers
 #define FREE            0
 #define ANALOG_CMP      1
-#define EXT_INT_0       2
+#define EXT_INT0        2
 #define TMR0_MATCH_A    3
 #define TMR0_OVF        4
 #define TMR1_MATCH_A    5
@@ -33,6 +33,7 @@
 #define TMR1_CAPTURE    7
 
 uint16_t analogRead(uint8_t pin);
+void analogStart(uint8_t pin);
 void analogSetPin(uint8_t pin);
 void analogInterrupt(void (*f)(void), uint8_t trigger);
 void analogRef(uint8_t ref);

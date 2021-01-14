@@ -1,4 +1,5 @@
-#include "init.h"
+#include "libs/analog.h"
+#include "libs/LCD.h"
 
 int main(void) {
 

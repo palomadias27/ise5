@@ -22,9 +22,19 @@ uint16_t analogRead(uint8_t pin) {
     }
 }
 
+void analogStart(uint8_t pin) {
+
+    if (!ADC_ON) {
+
+        ADC_On();
+    }
+    analogSetPin(pin);
+    ADC_Start();
+}
+
 void analogSetPin(uint8_t pin) {
 
-    ADMUX = (ADMUX & 0xf0) | (pin & 0x0f);
+    ADMUX |= (ADMUX & 0xf0) | (pin & 0x0f);
 }
 
 void analogInterrupt(void (*f)(void), uint8_t trigger) {

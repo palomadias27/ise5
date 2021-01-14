@@ -7,11 +7,23 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "digital.h"
+
+#define CMD		0
+#define WRITE	1
+
+#define RS	pins[0]
+#define EN	pins[1]
+#define D4	pins[2]
+#define D5 	pins[3]
+#define D6 	pins[4]
+#define D7 	pins[5]
+
 class LCD {
 
 	public:
 
-		LCD(volatile uint8_t* port, uint8_t rs, uint8_t en, uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7);
+		LCD(uint8_t rs, uint8_t en, uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7);
 		void send	(uint8_t byte);
 		void cmd	(uint8_t byte);
 		void clear	(void);
@@ -19,19 +31,12 @@ class LCD {
 		void putC	(char ch);
 		void print 	(const char* str);
 		void print (int32_t int32_);
-		void print	(uint32_t int32_);
+		void print	(uint32_t uint32_);
 		void print	(double float_);
 
 	private:
 
-		volatile uint8_t* LCD_DDR;
-		volatile uint8_t* LCD_PORT;
-		uint8_t RS;
-		uint8_t EN;
-		uint8_t D4;
-		uint8_t D5;
-		uint8_t D6;
-		uint8_t D7;
+		uint8_t pins[6];	/* RS, EN, D4, D5, D6, D7 */
 };
 
 
