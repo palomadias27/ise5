@@ -5,7 +5,7 @@ CC=avr-gcc
 OBJCOPY=avr-objcopy
 CFLAGS=-Wall -g -Os -mmcu=${MCU} -DF_CPU=${F_CPU} -I.
 TARGET=lm35
-SRCS=main.cpp libs/analog.cpp libs/LCD.cpp
+SRCS=main.cpp libs/analog.cpp libs/LCD.cpp libs/digital.cpp
 PROGRAMMER=usbasp
 
 all:
