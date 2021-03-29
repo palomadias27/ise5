@@ -86,7 +86,7 @@ void LCD::print(int32_t int32_) {
 void LCD::print(uint32_t uint32_) {
 
 	char word[10];
-	print(ultoa(int32_,word,10));
+	print(ultoa(uint32_,word,10));
 }
 
 void LCD::print(double float_) {
