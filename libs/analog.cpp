@@ -34,7 +34,7 @@ void analogStart(uint8_t pin) {
 
 void analogSetPin(uint8_t pin) {
 
-    ADMUX |= (ADMUX & 0xf0) | (pin & 0x0f);
+    ADMUX = (ADMUX & 0xf0) | (pin & 0x0f);
 }
 
 void analogInterrupt(void (*f)(void), uint8_t trigger) {
