@@ -20,11 +20,11 @@ float temp = tension * 100;               // Valor de temperatura que mide el LM
 
 Esto puede hacerse de forma mas compacta, pero la idea es que tenemos que hacer la lectura, luego convertirla a tensión con la relación de la segunda linea (donde `REF` es el valor de tensión de referencia que elegimos). Este paso es indistinto para el sensor que estemos usando, mientras que el último paso es convertir el valor de tensión que entrega el sensor a la magnitud que nos interesa (en este caso temperatura) y ahí dependeremos de como se comporte cada sensor. En nuestro caso, esa cuenta sale de pensar:
 
-<div style="align: center;">
-  <img src="https://render.githubusercontent.com/render/math?math=V_{out} = 10 \frac{mV}{C} \space x \space T\space[C]" style="display: block; margin-left: auto; margin-right: auto; width: 50px;">
+<div style="display: block; margin: auto;">
+  <img src="https://render.githubusercontent.com/render/math?math=V_{out} = 10 \frac{mV}{C} \space x \space T\space[C]">
 </div>
 
-<div  style="align: center;">
+<div  style="display: block; margin: auto">
   <img src="https://render.githubusercontent.com/render/math?math=T\space[C] = \frac{V_{out}}{10\frac{mV}{C}} = 100\space x \space V_{out}">
 </div>
 
