@@ -35,4 +35,4 @@ Con `β = 3950`, `T0 = 298`, `R(T0) = 10K`.
 ## Como entregar
 
 - Archivos para subir: `main.py`, `diagram.json`, `wokwi-project.txt` y el `README.md`.
-- Nombre de la rama: `ise5/2021/upython/alarm`.
+- Nombre de la rama: `ise5/2021/upython/alarma`.
