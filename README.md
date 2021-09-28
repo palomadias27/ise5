@@ -4,7 +4,7 @@ Hacer un programa en `micropython` que sirva de sistema de alerta cada vez que l
 Luego, hacer un `README.md` con lo siguiente:
 
 ```markdown
-# Micropython - Alarma
+# Micropython - MPU6050
 
 Alumno: Nombre y apellido
 Curso: Curso
