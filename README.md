@@ -1,6 +1,34 @@
 ## Especificaciones
 
-Hacer un programa en `micropython` que sirva de sistema de alerta cada vez que la temperatura indicada por un `NTC` sea superior a una de referencia. Cuando esto ocurre, un buzzer y un LED rojo deben encenderse. De lo contrario, un LED azul debe estar encendido.
+Hacer un programa en `micropython` que permita medir aceleracion y cambios de angulo en los tres ejes (X, Y, Z). Debe haber dos LED RGB (uno para el acelerometro y otro para el giroscopo) que den combinacoines de colores de acuerdo a los valores que indique el `MPU6050`. Las combinaciones son:
+
+<div align="center">
+  
+| LED 1 | Eje X | Eje Y | Eje Z | 
+| ----- | ----- | ----- | ----- |  
+| Apagado |  (+)  |  (+)  |  (+)  |
+| Azul |  (+)  |  (+)  |  (-)  |
+| Verde |  (+)  |  (-)  |  (+)  |
+| Cian |  (+)  |  (-)  |  (-)  |
+| Rojo |  (-)  |  (+)  |  (+)  |
+| Violeta |  (-)  |  (+)  |  (-)  |
+| Verde |  (-)  |  (-)  |  (+)  |
+| Blanco |  (-)  |  (-)  |  (-)  |
+  
+</div>
+
+Se debe imprimir periodicamente los valores del MPU por el interprete de Micropython con este formato:
+
+```
+Aceleracion X: valor g
+Aceleracion Y: valor g
+Aceleracion Z: valor g
+
+Variacion angular X: valor grados/s
+Variacion angular Y: valor grados/s
+Variacion angular Z: valor grados/s
+```
+
 Luego, hacer un `README.md` con lo siguiente:
 
 ```markdown
@@ -9,30 +37,24 @@ Luego, hacer un `README.md` con lo siguiente:
 Alumno: Nombre y apellido
 Curso: Curso
 Materia: Adquisición de Datos
+
+[link del proyecto de wokwi del .txt]
 ```
 
 ## Consideraciones
 
-- Documentación de [micropython](http://docs.micropython.org/en/latest/). Van a tener que usar la clase `ADC` del modulo `machine`. Particularmente, hay un apartado para la `Raspberry Pi Pico` en [Quick reference for the RP2](http://docs.micropython.org/en/latest/rp2/quickref.html#pins-and-gpio).
+- Documentación de [micropython](http://docs.micropython.org/en/latest/). Van a tener que usar la clase `I2C` del modulo `machine`. Particularmente, hay un apartado para la `Raspberry Pi Pico` en [Quick reference for the RP2](http://docs.micropython.org/en/latest/rp2/quickref.html#pins-and-gpio).
 - El simulador para que usen es [Wokwi](https://wokwi.com/arduino/new?template=micropython-pi-pico).
 - Documentación del [simulador](https://docs.wokwi.com/micropython) que van a usar.
 - Lista de componentes:
   - Raspberry Pi Pico.
-  - 2 LEDs.
-  - 2 resistencias de 330 o 220.
-  - NTC.
-  - Buzzer.
-  - Potenciómetro.
-- Para referencia, el potenciómetro en su mayor valor de resistencia debe indicar una temperatura de 35 grados.
-- La fórmula para calcular lal temperatura del NTC es:
-
-<div align="center">
-  <img src="https://render.githubusercontent.com/render/math?math=T_{(R)} = \frac{\beta T_0}{T_0 ln \Big(\frac{R_{(T)}}{R_{(T_0)}}\Big ) %2B \beta}">
-</div>
-
-Con `β = 3950`, `T0 = 298`, `R(T0) = 10K`. 
+  - 2 LEDs RGB.
+  - 6 resistencias de 330 o 220.
+  - MPU6050
+- El modulo para el `MPU6050` lo pueden ver en el repo, fue sacado de este [link](https://microcontrollerslab.com/micropython-mpu-6050-esp32-esp8266/). Solo copien el contenido del `mpu6050.py` en un nuevo archivo en Wokwi.
+- El calculo de las unidades lo pueden deducir de la pagina 25 de la [hoja de datos](https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf) del `MPU6050`. En este momento esta calibrado a ±2g y ±250 grados/s a fondo de escala con 16 bits de resolucion de ADC.
 
 ## Como entregar
 
 - Archivos para subir: `main.py`, `diagram.json`, `wokwi-project.txt` y el `README.md`.
-- Nombre de la rama: `ise5/2021/upython/alarma`.
+- Nombre de la rama: `ise5/2021/upython/mpu6050`.
